@@ -1,0 +1,85 @@
+/*Configurações da Seção de Linkss */
+.tabela-pre{
+	padding: 0 0 40px 0;
+	margin: 0 auto;
+	margin-bottom: 5px;
+	text-align: center;
+	background-color: #fff;
+	border: 1px solid #f1f1f1;
+}
+
+.tabela-pre .pre-detalhe h2{
+	font-size: 26px;
+	font-weight: 700;
+	color: #333;
+	margin-bottom: 10px;
+	text-transform: uppercase;
+	background-color: #f1f1f1;
+	padding: 20px 0;
+}
+
+.tabela-pre .pre-detalhe ul{
+	margin-bottom: 8px;
+	padding: 0 !important;
+}
+
+.tabela-pre .pre-detalhe ul li{
+	padding: 5px;
+	font-size: 15px;
+	border-bottom: 1px dotted #f1f1f1;
+	list-style: none;
+}
+
+.small-red{
+	color: red;
+	margin-bottom: -8px;
+}
+
+
+/* Rodapé */
+.bg-rodape1{
+	background-color: #aaaaaa;
+}
+
+.bg-rodape1 ul{
+	-webkit-padding-start: 0;
+}
+
+.bg-rodape1 ul li {
+	list-style: none;
+}
+
+.bg-card-rodape{
+	background-color: #000000;
+}
+
+
+/* Configurações Gerais */
+
+.underline-footer{
+	content: '';
+	border-top: 2px solid #000000;
+	width: 70px;
+	display: block;
+	margin-top: 5px;
+}
+
+.sombra:hover{
+	box-shadow: 0 0 20px 0 rgba(0,0,0,0.1)
+}
+.stike{
+	text-align: center;
+}
+.name{
+	font-family: 'Times New Roman', Times, serif;
+	font-size: 10px;
+	text-align: center;
+	float: right;
+	color: #fff;
+	margin-bottom: -8px;
+}
+.mag{
+	margin-bottom: 1%;
+	margin-top: -5%;
+
+}
