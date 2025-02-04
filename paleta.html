@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Paleta de Cores - Grupo Santa Joana</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    /* Container principal que segura as colunas (hospitais/grupos) */
+    .hospitais {
+      display: flex;
+      justify-content: space-between; 
+      align-items: flex-start;    /* Alinha todos os blocos no topo */
+      flex-wrap: wrap;            /* quebra linha se a tela for pequena */
+      gap: 20px;
+    }
+
+    /* Cada bloco (hospital ou BI) será uma coluna */
+    .hospital {
+      flex: 1 1 250px;            /* largura mínima de 250px, ajuste se desejar */
+      display: flex;
+      flex-direction: column;     /* empilha logo e cores em coluna */
+      border: 1px solid #ccc;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+
+    /* Bloco que contém somente o logotipo */
+    .logo-container {
+      text-align: center;         /* Centraliza a imagem */
+      margin-bottom: 10px;        /* Espaço abaixo do logotipo */
+    }
+
+    /* Imagem do logotipo, tamanho fixo de 120x120 */
+    .logo {
+      width: 120px;
+      height: 120px;
+      object-fit: contain; /* ou cover, para preencher por completo (pode haver corte) */
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* Bloco que contém o título + as cores */
+    .conteudo-cores {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;       /* Faz o bloco ocupar toda a largura interna */
+    }
+
+    /* Título de cada hospital/grupo */
+    .conteudo-cores h2 {
+      margin: 0 0 10px;
+      text-align: center;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 10px;
+    }
+
+    /* Possíveis subtítulos para agrupar cores dentro do BI Santa Joana (opcional) */
+    .conteudo-cores h3 {
+      margin: 15px 0 5px;         /* Espaçamento entre subtítulo e bloco anterior */
+      text-align: center;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 5px;
+      font-weight: normal;
+    }
+
+    /* Container que segura as cores em coluna */
+    .container-cores {
+      display: flex;
+      flex-direction: column;     /* coluna de cores */
+      gap: 5px;                   /* espaçamento vertical entre as cores */
+    }
+
+    /* Cada bloco de cor */
+    .cor {
+      width: 100%;               /* ocupa toda a largura disponível */
+      height: 25px;
+      border: 1px solid #ccc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: #333;               /* Cor inicial do texto (JS ajustará depois) */
+    }
+
+    /* Estilização adicional para o texto de "Cor Principal" */
+    .principal {
+      font-weight: bold;
+      margin-left: 5px;
+      font-size: 12px;
+      color: inherit;            /* mantém a cor do texto (será preta ou branca, dependendo do contraste) */
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Paleta de Cores - Grupo Santa Joana</h1>
+
+  <div class="hospitais">
+
+    <!-- HOSPITAL SANTA JOANA -->
+    <div class="hospital">
+      <div class="logo-container">
+        <img 
+          class="logo" 
+          src="./logotipo/santajoana.png" 
+          alt="Logotipo Hospital Santa Joana">
+      </div>
+      <div class="conteudo-cores">
+        <h2></h2>
+        <div class="container-cores">
+          <div class="cor" style="background-color: #D5EFED;">#D5EFED</div>
+          <div class="cor" style="background-color: #9AD1CC;">#9AD1CC</div>
+          <div class="cor" style="background-color: #54ABA7;">#54ABA7</div>
+          <div class="cor" style="background-color: #107873;">
+            #107873
+            <span class="principal">(Cor Principal)</span>
+          </div>
+          <div class="cor" style="background-color: #0A5C59;">#0A5C59</div>
+          <div class="cor" style="background-color: #053F3D;">#053F3D</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HOSPITAL PRO MATRE -->
+    <div class="hospital">
+      <div class="logo-container">
+        <img 
+          class="logo" 
+          src="./logotipo/promatre.png" 
+          alt="Logotipo Hospital Pro Matre">
+      </div>
+      <div class="conteudo-cores">
+        <h2></h2>
+        <div class="container-cores">
+          <div class="cor" style="background-color: #D8DEED;">#D8DEED</div>
+          <div class="cor" style="background-color: #A7B1D7;">#A7B1D7</div>
+          <div class="cor" style="background-color: #6A79BE;">#6A79BE</div>
+          <div class="cor" style="background-color: #2D3F8D;">
+            #2D3F8D
+            <span class="principal">(Cor Principal)</span>
+          </div>
+          <div class="cor" style="background-color: #1F2E6D;">#1F2E6D</div>
+          <div class="cor" style="background-color: #131C46;">#131C46</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HOSPITAL SANTA MARIA -->
+    <div class="hospital">
+      <div class="logo-container">
+        <img
+          class="logo" 
+          src="./logotipo/santamaria.png"
+          alt="Logotipo Hospital Santa Maria">
+      </div>
+      <div class="conteudo-cores">
+        <h2></h2>
+        <div class="container-cores">
+          <div class="cor" style="background-color: #D6F2FA;">#D6F2FA</div>
+          <div class="cor" style="background-color: #A8E4F5;">#A8E4F5</div>
+          <div class="cor" style="background-color: #69CBEC;">#69CBEC</div>
+          <div class="cor" style="background-color: #00B5E3;">
+            #00B5E3
+            <span class="principal">(Cor Principal)</span>
+          </div>
+          <div class="cor" style="background-color: #0087B1;">#0087B1</div>
+          <div class="cor" style="background-color: #005B74;">#005B74</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Grupo Santa Joana -->
+    <div class="hospital">
+      <div class="logo-container">
+        <img
+          class="logo" 
+          src="./logotipo/gruposantajoana.png"
+          alt="Logotipo Grupo Santa Joana">
+      </div>
+      <div class="conteudo-cores">
+        <h2></h2>
+        <div class="container-cores">
+          <div class="cor" style="background-color: #D8F0FA;">#D8F0FA</div>
+          <div class="cor" style="background-color: #AAD8F4;">#AAD8F4</div>
+          <div class="cor" style="background-color: #71B9E8;">#71B9E8</div>
+          <div class="cor" style="background-color: #2B8ED1;">
+            #2B8ED1
+            <span class="principal">(Cor Principal)</span>
+          </div>
+          <div class="cor" style="background-color: #0065A5;">#0065A5</div>
+          <div class="cor" style="background-color: #003C67;">#003C67</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BUSINESS INTELLIGENCE SANTA JOANA (3 grupos de cores) -->
+    <div class="hospital">
+      <div class="logo-container">
+        <img
+          class="logo" 
+          src="./logotipo/Group 1.jpg"
+          alt="Logotipo Business Intelligence Santa Joana">
+      </div>
+      <div class="conteudo-cores">
+        <h2></h2>
+
+        <!-- Grupo 1 -->
+        <h3></h3>
+        <div class="container-cores">
+          <div class="cor" style="background-color: #D9EFED;">#D9EFED</div>
+          <div class="cor" style="background-color: #A5D7D3;">#A5D7D3</div>
+          <div class="cor" style="background-color: #72BFBA;">#72BFBA</div>
+          <div class="cor" style="background-color: #0D6B66;">
+            #0D6B66
+            <span class="principal">(Cor Principal)</span>
+          </div>
+          <div class="cor" style="background-color: #0A544F;">#0A544F</div>
+          <div class="cor" style="background-color: #053F3D;">#053F3D</div>
+        </div>
+
+        <!-- Grupo 2 -->
+        <h3></h3>
+        <div class="container-cores">
+          <div class="cor" style="background-color: #D5FAFF;">#D5FAFF</div>
+          <div class="cor" style="background-color: #A3E8F4;">#A3E8F4</div>
+          <div class="cor" style="background-color: #6BD6E9;">#6BD6E9</div>
+          <div class="cor" style="background-color: #00C7F2;">
+            #00C7F2
+            <span class="principal">(Cor Principal)</span>
+          </div>
+          <div class="cor" style="background-color: #0096BA;">#0096BA</div>
+          <div class="cor" style="background-color: #006380;">#006380</div>
+        </div>
+
+        <!-- Grupo 3 -->
+        <h3></h3>
+        <div class="container-cores">
+          <div class="cor" style="background-color: #D8E2ED;">#D8E2ED</div>
+          <div class="cor" style="background-color: #A6BBD3;">#A6BBD3</div>
+          <div class="cor" style="background-color: #6E8FAD;">#6E8FAD</div>
+          <div class="cor" style="background-color: #16335E;">
+            #16335E
+            <span class="principal">(Cor Principal)</span>
+          </div>
+          <div class="cor" style="background-color: #102744;">#102744</div>
+          <div class="cor" style="background-color: #0A1B2F;">#0A1B2F</div>
+        </div>
+      </div>
+    </div>
+
+  </div> <!-- fim .hospitais -->
+
+  <script>
+    /**
+     * Função que recebe uma cor em hexadecimal e decide se a cor de texto
+     * deve ser 'black' ou 'white' de acordo com o contraste (fórmula de YIQ).
+     */
+    function getContrastColor(hexColor) {
+      // Remove o "#" do início (caso exista)
+      hexColor = hexColor.replace('#', '');
+
+      // Converte para valores decimais de R, G e B
+      const r = parseInt(hexColor.substr(0, 2), 16);
+      const g = parseInt(hexColor.substr(2, 2), 16);
+      const b = parseInt(hexColor.substr(4, 2), 16);
+
+      // Fórmula aproximada de luminância (YIQ)
+      const yiq = (r * 299 + g * 587 + b * 114) / 1000;
+
+      // Se yiq >= 128, cor do texto será preto, caso contrário branco
+      return yiq >= 128 ? '#000000' : '#FFFFFF';
+    }
+
+    // Seleciona todos os elementos com a classe .cor
+    const colorDivs = document.querySelectorAll('.cor');
+
+    // Ajusta a cor do texto de acordo com o fundo
+    colorDivs.forEach(div => {
+      const bgStyle = div.getAttribute('style');
+      const match = bgStyle.match(/#([0-9a-fA-F]{6})/);
+      if (match) {
+        const hex = match[0];
+        div.style.color = getContrastColor(hex);
+      }
+    });
+  </script>
+</body>
+</html>
