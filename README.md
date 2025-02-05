@@ -29,7 +29,7 @@ Este arquivo HTML exibe uma paleta de cores usada em todo o sistema. Utiliza Boo
             <i class="fa-solid fa-atom"></i>
           </a>
         </li>
-        <li class="nav-item">
+        <li the="nav-item">
           <a class="nav-link" href="paleta.html" title="Paleta">
             <i class="fa-solid fa-palette"></i>
           </a>
@@ -58,9 +58,11 @@ Este arquivo HTML permite criar ícones personalizados com base em parâmetros d
 <div class="circle" id="circle"><span style="font-family: Arial, sans-serif;">FPA</span></div>
 \```
 
-### Outros Arquivos PHP
+### Gerenciamento Dinâmico de Links
 
-Vários arquivos PHP, como `manage_links.php`, `create_db.php`, e `edit_section.php`, são utilizados para gerenciar conteúdo e configurações do sistema.
+O gerenciamento dinâmico de links envolve criar, editar e remover hyperlinks em um sistema ou website de maneira que seja fácil atualizá-los sem a necessidade de alterar manualmente o código HTML. Esse gerenciamento é feito através de uma interface, geralmente um painel de administração, onde os usuários podem inserir novos links, modificar os existentes e excluir os que não são mais necessários.
+
+Esse tipo de sistema é especialmente útil em sites que têm muitos conteúdos ou páginas que precisam frequentemente atualizar suas referências e links externos. Com um gerenciador de links dinâmico, você pode garantir que todos os links estão corretos e atuais, melhorando a experiência do usuário e a eficiência da manutenção do site.
 
 **Dependências:**
 - PHP 7.4 ou superior
