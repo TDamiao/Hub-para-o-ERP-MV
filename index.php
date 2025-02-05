@@ -37,7 +37,7 @@ $sections_complemento = $stmt->fetchAll(PDO::FETCH_ASSOC);
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
       <!-- Ao clicar em "INOVA", o usuário volta para a página principal -->
-      <a class="navbar-brand" href="index.php">INOVA</a>
+      <a class="navbar-brand" href="index.php">HUBMV</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
               aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -47,8 +47,13 @@ $sections_complemento = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <ul class="navbar-nav">
                  <!-- Link para Inserir Novo Link -->
                  <li class="nav-item">
-            <a class="nav-link" href="insert.php" title="Adicionar Novo Link">
-              <i class="fa-solid fa-plus"></i> Adicionar
+            <a class="nav-link" href="gera_icons.html" title="Gerador de Icons">
+            <i class="fa-solid fa-atom"></i>
+            </a>
+          </li>
+            <li class="nav-item">
+            <a class="nav-link" href="paleta.html" title="Paleta">
+            <i class="fa-solid fa-palette"></i>
             </a>
           </li>
           <li class="nav-item">
@@ -66,7 +71,7 @@ $sections_complemento = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <div class="py-4">
       <section class="container">
         <header class="mb-4">
-          <h2 class="text-center">Links MV</h2>
+          <h2 class="text-center">Links</h2>
         </header>
         <div class="row g-4">
           <?php foreach ($sections_mv as $section): ?>

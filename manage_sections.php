@@ -51,9 +51,9 @@ $sections = $stmt->fetchAll(PDO::FETCH_ASSOC);
       <a class="navbar-brand" href="index.php">INOVA</a>
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="index.php">
-              <i class="fa-solid fa-house"></i> Home
+            <li class="nav-item">
+            <a class="nav-link" href="manage_links.php">
+              <i class="fa-solid fa-arrow-left"></i> Voltar
             </a>
           </li>
         </ul>

@@ -44,16 +44,11 @@ $links = $stmt->fetchAll(PDO::FETCH_ASSOC);
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav">
                  <!-- Link para Inserir Novo Link -->
-                 <li class="nav-item">
-            <a class="nav-link" href="insert.php" title="Adicionar Novo Link">
-              <i class="fa-solid fa-plus"></i> Adicionar
-            </a>
-          </li>
           <li class="nav-item">
-            <a class="nav-link" href="manage_links.php" title="Gerenciar Links">
-              <i class="fa-solid fa-gear fa-lg"></i>
+            <a class="nav-link" href="index.php">
+              <i class="fa-solid fa-house"></i> Home
             </a>
-          </li>
+            </li>
         </ul>
       </div>
     </div>
@@ -89,6 +84,7 @@ $links = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </table>
     <!-- Link para inserir um novo link -->
     <a href="insert.php" class="btn btn-success">Inserir Novo Link</a>
+    <a href="manage_sections.php" class="btn btn-success">Edita Secções</a>
   </div>
   
   <!-- Bootstrap 5 JS (Bundle que inclui Popper) -->

@@ -65,14 +65,9 @@ $sections = $stmt_sections->fetchAll(PDO::FETCH_ASSOC);
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav">
                  <!-- Link para Inserir Novo Link -->
-                 <li class="nav-item">
-            <a class="nav-link" href="insert.php" title="Adicionar Novo Link">
-              <i class="fa-solid fa-plus"></i> Adicionar
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="manage_links.php" title="Gerenciar Links">
-              <i class="fa-solid fa-gear fa-lg"></i>
+            <li class="nav-item">
+            <a class="nav-link" href="manage_links.php">
+              <i class="fa-solid fa-arrow-left"></i> Voltar
             </a>
           </li>
         </ul>

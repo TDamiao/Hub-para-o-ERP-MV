@@ -75,7 +75,7 @@ $sections = $stmt_sections->fetchAll(PDO::FETCH_ASSOC);
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
       <!-- Ao clicar em "INOVA", o usuário volta para a página principal -->
-      <a class="navbar-brand" href="index.php">INOVA</a>
+      <a class="navbar-brand" href="index.php">HUBMV</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
               aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -84,14 +84,9 @@ $sections = $stmt_sections->fetchAll(PDO::FETCH_ASSOC);
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav">
                  <!-- Link para Inserir Novo Link -->
-                 <li class="nav-item">
-            <a class="nav-link" href="insert.php" title="Adicionar Novo Link">
-              <i class="fa-solid fa-plus"></i> Adicionar
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="manage_links.php" title="Gerenciar Links">
-              <i class="fa-solid fa-gear fa-lg"></i>
+            <li class="nav-item">
+            <a class="nav-link" href="manage_links.php">
+              <i class="fa-solid fa-arrow-left"></i> Voltar
             </a>
           </li>
         </ul>
