@@ -27,8 +27,20 @@ if (!$linkData) {
     die("Link não encontrado.");
 }
 
-// Processa o envio do formulário
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+// Processa a exclusão do link, se solicitado
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'delete') {
+    $stmtDelete = $db->prepare("DELETE FROM links WHERE id = ?");
+    if ($stmtDelete->execute([$link_id])) {
+        $mensagem = "Link excluído com sucesso!";
+        header("Location: manage_links.php");
+        exit;
+    } else {
+        $mensagem = "Erro ao excluir o link.";
+    }
+}
+
+// Processa o envio do formulário de atualização
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && !isset($_POST['action'])) {
     $section_id = isset($_POST['section_id']) ? intval($_POST['section_id']) : null;
     $name       = isset($_POST['name']) ? trim($_POST['name']) : "";
     $url        = isset($_POST['url']) ? trim($_POST['url']) : "";
@@ -36,12 +48,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $active     = isset($_POST['active']) ? 1 : 0;
     $position   = isset($_POST['position']) && $_POST['position'] !== "" ? intval($_POST['position']) : null;
 
-    // Validação simples dos campos obrigatórios
     if ($section_id && $name && $url) {
         $stmtUpdate = $db->prepare("UPDATE links SET section_id = ?, name = ?, url = ?, target = ?, active = ?, position = ? WHERE id = ?");
         if ($stmtUpdate->execute([$section_id, $name, $url, $target, $active, $position, $link_id])) {
             $mensagem = "Link atualizado com sucesso!";
-            // Atualiza os dados para exibir os valores recentes
             $stmt = $db->prepare("SELECT * FROM links WHERE id = ?");
             $stmt->execute([$link_id]);
             $linkData = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -64,45 +74,30 @@ $sections = $stmt_sections->fetchAll(PDO::FETCH_ASSOC);
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Editar Link</title>
-  <!-- Bootstrap 5 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Font Awesome 6 CSS (atualizado) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
 </head>
 <body>
-  <!-- Navbar com logomarca e ícone de engrenagem -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <!-- Ao clicar em "INOVA", o usuário volta para a página principal -->
       <a class="navbar-brand" href="index.php">HUBMV</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
-              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <!-- Ícone de engrenagem (opcional, pois já estamos na página de gerenciamento) -->
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav">
-                 <!-- Link para Inserir Novo Link -->
-            <li class="nav-item">
-            <a class="nav-link" href="manage_links.php">
-              <i class="fa-solid fa-arrow-left"></i> Voltar
-            </a>
+          <li class="nav-item">
+            <a class="nav-link" href="manage_links.php"><i class="fa-solid fa-arrow-left"></i> Voltar</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
-
   <div class="container my-5">
     <h1 class="mb-4">Editar Link</h1>
-
     <?php if ($mensagem): ?>
-      <div class="alert alert-info">
-        <?php echo htmlspecialchars($mensagem); ?>
-      </div>
+      <div class="alert alert-info"><?php echo htmlspecialchars($mensagem); ?></div>
     <?php endif; ?>
-
     <form method="POST" action="edit.php?id=<?php echo $link_id; ?>">
       <div class="mb-3">
         <label for="section_id" class="form-label">Seção</label>
@@ -141,10 +136,27 @@ $sections = $stmt_sections->fetchAll(PDO::FETCH_ASSOC);
         <input type="number" class="form-control" id="position" name="position" value="<?php echo htmlspecialchars($linkData['position']); ?>">
       </div>
       <button type="submit" class="btn btn-primary">Atualizar Link</button>
+      <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">Excluir Link</button>
     </form>
   </div>
-
-  <!-- Bootstrap 5 JS (Bundle que inclui Popper) -->
+  <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="deleteModalLabel">Confirmar Exclusão</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">Tem certeza de que deseja excluir este link? Esta ação não pode ser desfeita.</div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <form method="POST" action="edit.php?id=<?php echo $link_id; ?>">
+            <input type="hidden" name="action" value="delete">
+            <button type="submit" class="btn btn-danger">Excluir</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
