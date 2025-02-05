@@ -14,7 +14,7 @@ Este arquivo HTML exibe uma paleta de cores usada em todo o sistema. Utiliza Boo
 - Font Awesome 6.4.0
 
 **Código de exemplo:**
-```html
+\```html
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
@@ -43,7 +43,7 @@ Este arquivo HTML exibe uma paleta de cores usada em todo o sistema. Utiliza Boo
     </div>
   </div>
 </nav>
-```
+\```
 
 ### gera_icons.html
 
@@ -54,9 +54,9 @@ Este arquivo HTML permite criar ícones personalizados com base em parâmetros d
 - Font Awesome 6.0.0-beta3
 
 **Código de exemplo:**
-```html
+\```html
 <div class="circle" id="circle"><span style="font-family: Arial, sans-serif;">FPA</span></div>
-```
+\```
 
 ### Outros Arquivos PHP
 
@@ -64,4 +64,3 @@ Vários arquivos PHP, como `manage_links.php`, `create_db.php`, e `edit_section.
 
 **Dependências:**
 - PHP 7.4 ou superior
-```
